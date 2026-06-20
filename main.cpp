@@ -66,6 +66,15 @@ bool search(TreeNode* root, int target)
         return search(root->right, target);
     }
 }
+int countNodes(TreeNode* root)
+{
+    if (root == nullptr)
+    {
+        return 0;
+    }
+
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
 
 int main()
 {
@@ -82,6 +91,8 @@ int main()
     cout << "In-order traversal: ";
     inOrder(root);
     cout << endl;
+
+    cout << "Total nodes: " << countNodes(root) << endl;
 
     int number;
 
